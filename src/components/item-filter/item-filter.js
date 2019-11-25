@@ -6,7 +6,7 @@ const ItemFilter = () => {
     return (
         <div className="item-filter">
             <div className="form-group d-flex">
-            <label for="exampleSelect1">Sort</label>
+            <label>Sort</label>
             <select className="form-control" id="exampleSelect1">
             <option>-not selected-</option>
             <option>Book name</option>
