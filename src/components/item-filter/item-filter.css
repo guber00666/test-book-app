@@ -1,0 +1,13 @@
+.item-filter {
+    margin-top: 1rem;
+    font-weight: bold;
+}
+.item-filter label {
+    margin-right: 1rem;
+    margin-top: auto;
+}
+
+.item-filter .form-control {
+    height: 45px;
+    border: solid 1px;
+}
