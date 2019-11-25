@@ -33,8 +33,8 @@ export default class TestBookService {
       return this._books;
     };
   
-    getBook = async () => {
-      return this._books[0];
+    getBook = async (id) => {
+      return this._books[id];
     };
   
   }
