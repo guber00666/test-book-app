@@ -1,9 +1,3 @@
-.books-app .row {
-    margin-bottom: 1rem;     
-}
-.flex-container {
-    margin-left: 10rem;
-    margin-right: 10rem;
-    flex-wrap: wrap;
-    align-items: flex-start
+.books-app {
+    margin-top: 30px;
 }
