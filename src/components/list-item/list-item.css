@@ -11,7 +11,16 @@
 .list-item .list-group {
     border-radius: 1%;
     border: solid 1px;
+
 }
 .tab-pane {
     padding: 10px;
 }
+.list-group {
+    margin-top: 20px;
+}
+.list-group-item.first{
+    background-color: grey;
+    color: white;
+}
+

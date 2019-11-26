@@ -4,15 +4,18 @@ import './item-filter.css';
 
 const ItemFilter = () => {
     return (
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+        <div className="item-filter">
+            <div className="input-group mb-3">
+                <div className="input-group-prepend">
+                    <span className="input-group-text" id="inputGroup-sizing-default">Search</span>
+                </div>
+                <input type="text" className="form-control" 
+                    aria-label="Sizing example input" 
+                    aria-describedby="inputGroup-sizing-default">
+                    </input>
+                </div>
             </div>
-            <input type="text" class="form-control"
-                 aria-label="Sizing example input" 
-                 aria-describedby="inputGroup-sizing-default"></input>
-            </div>
-    );
-};
-
+            );
+        };
+        
 export default ItemFilter;
