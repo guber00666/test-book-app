@@ -4,17 +4,14 @@ import './item-filter.css';
 
 const ItemFilter = () => {
     return (
-        <div className="item-filter">
-            <div className="form-group d-flex">
-            <label>Sort</label>
-            <select className="form-control" id="exampleSelect1">
-            <option>-not selected-</option>
-            <option>Book name</option>
-            <option>Book genre</option>
-            <option>Book author</option>
-            </select>
-        </div>
-        </div>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="inputGroup-sizing-default">Default</span>
+            </div>
+            <input type="text" class="form-control"
+                 aria-label="Sizing example input" 
+                 aria-describedby="inputGroup-sizing-default"></input>
+            </div>
     );
 };
 
