@@ -4,33 +4,31 @@ import './list.css';
 
 const List = (props) => {
     
-    const {name, genre, author} = props;
+    const data = props.data;
+
+    const rows = data.map(el => {
+        return (
+            <tr>
+                <td>{el.name}</td>
+                <td>{el.genre}</td>
+                <td>{el.author}</td>
+            </tr>
+        );
+    });
+
+    console.log(props);
 
     return (
         <table className="table">
             <thead>
                 <tr>
-                    <th scope="col">Book 1</th>
-                    <th scope="col">Book 2</th>
-                    <th scope="col">Book 3</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">Authors</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>{name}</td>
-                    <td>Book Name</td>
-                    <td>Book Name</td>
-                </tr>
-                <tr>
-                    <td>{genre}</td>
-                    <td>Book Genre</td>
-                    <td>Book Genre</td>
-                </tr>
-                <tr>
-                    <td>{author}</td>
-                    <td>Book Author</td>
-                    <td>Book Author</td>
-                </tr>
+                {rows}
             </tbody>
         </table>
     );
