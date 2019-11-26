@@ -19,9 +19,6 @@ export default class App extends Component {
                     <div className="col-lg-6">
                         <Header />
                     </div>
-                    <div className="col-lg-6">
-                        <ItemFilter />
-                    </div>
                 </div>
                 <div className="flex-container d-flex">
                     <div className="col-lg-12">

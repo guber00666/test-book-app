@@ -1,4 +1,5 @@
 import React from 'react';
+import ItemFilter from '../item-filter'
 import './list-item.css';
 
 const ListItem = () => {
@@ -14,6 +15,7 @@ const ListItem = () => {
             
             <ul className="list-group">
                 <li className="list-group-item first">{tittle}</li>
+                <li className="list-group-item searching"><ItemFilter /></li>
                 <li className="list-group-item">{name}</li>
                 <li className="list-group-item">{genre}</li>
                 <li className="list-group-item">{author}</li>

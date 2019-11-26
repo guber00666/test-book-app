@@ -10,7 +10,7 @@
 }
 .list-item .list-group {
     border-radius: 1%;
-    border: solid 1px;
+
 
 }
 .tab-pane {
@@ -22,5 +22,8 @@
 .list-group-item.first{
     background-color: grey;
     color: white;
+}
+.list-item .searching {
+    padding: 0;
 }
 
