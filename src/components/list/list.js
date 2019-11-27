@@ -16,8 +16,6 @@ const List = (props) => {
         );
     });
 
-    console.log(props);
-
     return (
         <table className="table">
             <thead>

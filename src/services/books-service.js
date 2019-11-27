@@ -1,28 +1,28 @@
 export const books = [
   {
     id: 1,
-    name: 'Book name',
-    author: 'Book author',
-    genre: 'Book genre'
+    name: 'Foundation',
+    author: 'Asimov, Isaac',
+    genre: 'Sci Fi'
   },
 
   {
     id: 2,
-    name: 'Book name 1',
-    author: 'Book author 2',
-    genre: 'Book genre 2'
+    name: 'The Master and Margarita',
+    author: 'Bulgakov, Mikhail',
+    genre: 'Fantasy'
   },
   {
     id: 3,
-    name: 'Book name 2',
-    author: 'Book author 2',
-    genre: 'Book genre 2'
+    name: 'War of the Classes',
+    author: 'London, Jack',
+    genre: 'Adventure'
   },
   {
     id: 4,
-    name: 'Book name 4',
-    author: 'Book author 4',
-    genre: 'Book genre 4'
+    name: 'The Adventure of Sherlock Holmes',
+    author: 'Doyle, Arthur Conan',
+    genre: 'Detectiv'
   },
 ];
 

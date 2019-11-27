@@ -1,7 +1,7 @@
 import React from 'react';
-import './search-panel.css';
+import './filter-input.css';
 
-const SearchPanel = () => {
+const FilterInput = () => {
     return (
         <div className="search-panel">
             <div className="input-group mb-3"></div>
@@ -10,4 +10,4 @@ const SearchPanel = () => {
     );
 };
 
-export default SearchPanel;
+export default FilterInput;

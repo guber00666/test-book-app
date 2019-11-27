@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './app.css';
-import ItemFilter from '../item-filter'; // CriteriaSelect
-import SearchPanel from '../search-panel'; // FilterInput
+import CriteriaSelect from '../criteria-select'; 
+import FilterInput from '../filter-input'; // FilterInput
 import List from '../list';
 import { books } from '../../services/books-service';
 
@@ -22,8 +22,8 @@ export default class App extends Component {
             <div className="books-app">
                 <div className="container">
                <h1>Books</h1>
-               <ItemFilter setCriteriaValue={this.setCriteriaValue} />
-               <SearchPanel />
+               <CriteriaSelect setCriteriaValue={this.setCriteriaValue} />
+               <FilterInput />
                <List data ={books}/>
 
                </div>
