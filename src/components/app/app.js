@@ -10,7 +10,7 @@ export default class App extends Component {
 
     state = {
         criteriaValue: '',
-        filterValue: ''
+        filterValue: 'Foundation'
     };
 
 
@@ -23,15 +23,18 @@ export default class App extends Component {
     }
 
     filterForElements = (arr) => {
-        return arr.filter(
-            item
-                .toString()
-                .includes(filterValue));
+        return arr.filter((item, value) =>{ 
+            return item.toString()
+                        .includes(value)
+                                
+                            });
     };
 
     render() {
-        //const filter = this.filterForElements(books);
-        console.log(books)
+        const {filterValue, criteriaValue} = this.state;
+
+        const filter = this.filterForElements(books, filterValue);
+        console.log(filter)
         return (
             <div className="books-app">
                 <div className="container">

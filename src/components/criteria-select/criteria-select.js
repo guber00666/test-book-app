@@ -12,7 +12,7 @@ const CriteriaSelect = (props) => {
                 <select className="form-control"
                     onChange={
                         event => setCriteriaValue(event.target.value)
-                        } >
+                    } >
                     <option>-select filter-</option>
                     <option>Book Name</option>
                     <option>Book Genre</option>
