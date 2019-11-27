@@ -27,5 +27,8 @@ export const books = [
 ];
 
 export const criteriaOptions = [
-  { label: "", value: "" }
+  { label: "-select-filter-", value: "0" },
+  { label: "Book Name", value: "1" },
+  { label: "Book Genre", value: "2" },
+  { label: "Book Author", value: "3" }
 ];

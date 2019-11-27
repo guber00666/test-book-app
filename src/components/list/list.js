@@ -7,13 +7,11 @@ const List = (props) => {
     const data = props.data;
 
     const rows = data.map((el, id) => {
-        return (
-            <tr key={id}>
+        return (<tr key={id}>
                 <td>{el.name}</td>
                 <td>{el.genre}</td>
                 <td>{el.author}</td>
-            </tr>
-        );
+            </tr>);
     });
 
     return (

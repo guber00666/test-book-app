@@ -10,9 +10,8 @@ export default class App extends Component {
 
     state = {
         criteriaValue: '',
-        filterValue: 'Foundation'
+        filterValue: ''
     };
-
 
     setCriteriaValue = (newValue) => {
         this.setState({ criteriaValue: newValue });
@@ -22,26 +21,26 @@ export default class App extends Component {
         this.setState({ filterValue: newValue });
     }
 
-    filterForElements = (arr) => {
-        return arr.filter((item, value) =>{ 
-            return item.toString()
-                        .includes(value)
-                                
-                            });
+    filterForElements = (arr, value) => {
+        return arr.filter((item) => item.name
+        .toLowerCase().includes(value))
     };
 
     render() {
         const {filterValue, criteriaValue} = this.state;
 
         const filter = this.filterForElements(books, filterValue);
-        console.log(filter)
+
+
+
+        console.log(filter, this.state);
         return (
             <div className="books-app">
                 <div className="container">
                <h1>Books</h1>
                <CriteriaSelect setCriteriaValue={this.setCriteriaValue} />
                <FilterInput  setFilterValue = {this.setFilterValue}/>
-               <List data ={books}/>
+               <List data ={filter}/>
 
                </div>
             </div>
