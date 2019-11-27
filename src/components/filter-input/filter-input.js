@@ -6,7 +6,10 @@ const FilterInput = (props) => {
     return (
         <div className="search-panel">
             <div className="input-group mb-3"></div>
-            <input type="text" className="form-control" />
+            <input className="form-control" 
+            onChange={
+                event => setFilterValue(event.target.value)}
+                placeholder="type for search" />
         </div>
     );
 };

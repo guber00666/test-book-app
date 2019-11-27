@@ -3,12 +3,12 @@ import './list.css';
 
 
 const List = (props) => {
-    
+
     const data = props.data;
 
-    const rows = data.map(el => {
+    const rows = data.map((el, id) => {
         return (
-            <tr>
+            <tr key={id}>
                 <td>{el.name}</td>
                 <td>{el.genre}</td>
                 <td>{el.author}</td>
@@ -17,18 +17,21 @@ const List = (props) => {
     });
 
     return (
-        <table className="table">
-            <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Genre</th>
-                    <th scope="col">Authors</th>
-                </tr>
-            </thead>
-            <tbody>
-                {rows}
-            </tbody>
-        </table>
+        <div className="list">
+            <table className="table">
+                <thead>
+                    <tr >
+                        <th scope="col">Name</th>
+                        <th scope="col">Genre</th>
+                        <th scope="col">Authors</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {rows}
+                </tbody>
+            </table>
+        </div>
+
     );
 };
 

@@ -19,17 +19,19 @@ export default class App extends Component {
     };
 
     setFilterValue = (newValue) => {
-        this.setState({ FilterVaule: newValue });
+        this.setState({ filterValue: newValue });
     }
 
     filterForElements = (arr) => {
         return arr.filter(
-            record[columId]
+            item
                 .toString()
-                .includes(filterVaule));
+                .includes(filterValue));
     };
 
     render() {
+        //const filter = this.filterForElements(books);
+        console.log(books)
         return (
             <div className="books-app">
                 <div className="container">

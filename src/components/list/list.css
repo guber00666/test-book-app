@@ -1,27 +1,5 @@
-
-.nav-item:hover {
-    background-color: grey;
-    color: white;
-    cursor: pointer;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
-    background-color: grey;
-}
-.list-item .list-group {
-    border-radius: 1%;
-
-
-}
-.tab-pane {
-    padding: 10px;
-}
-.list-group {
-    margin-top: 20px;
-}
-.list-group-item.first{
-    background-color: grey;
-    color: white;
+.list {
+    margin-top: 30px;
 }
 
 
