@@ -8,10 +8,10 @@ const List = (props) => {
 
     const rows = data.map((el, id) => {
         return (<tr key={id}>
-                <td>{el.name}</td>
-                <td>{el.genre}</td>
-                <td>{el.author}</td>
-            </tr>);
+            <td>{el.name}</td>
+            <td>{el.genre}</td>
+            <td>{el.author}</td>
+        </tr>);
     });
 
     return (
@@ -29,7 +29,6 @@ const List = (props) => {
                 </tbody>
             </table>
         </div>
-
     );
 };
 
