@@ -1,5 +1,15 @@
 
+export default function reducer(state, action) {
 
-export default (state) => {
+    switch(action.type) {
+    case("setcriteriaValue") :
+    break;
+
+    case("setfiltervalue") :
+    break;
+
+    default : 
     return state;
+    }
+
 }

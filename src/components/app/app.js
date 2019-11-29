@@ -4,27 +4,12 @@ import CriteriaSelect from '../criteria-select';
 import FilterInput from '../filter-input'; // FilterInput
 import List from '../list';
 import { books } from '../../services/books-service';
-import reducer from '../reducers/reducer';
-import { createStore } from 'redux';
+import { store } from '../store/index'
 
-const initialState = {
-    criteriaValue: '',
-    filterValue: ''
-};
 
-const store = createStore(reducer, initialState);
 
 
 export default class App extends Component {
-
-    /*state = {
-        criteriaValue: '',
-        filterValue: ''
-    };*/
-
-    //setCriteriaValue={this.setCriteriaValue}
-    //setFilterValue={this.setFilterValue}
-    //const { filterValue, criteriaValue } = this.state;
 
     setCriteriaValue = (newValue) => {
         this.setState({ criteriaValue: newValue });
@@ -42,6 +27,7 @@ export default class App extends Component {
     };
 
     render() {
+
         const criteriaValue = store.getState().criteriaValue;
 
         const filterValue = store.getState().filterValue;
@@ -72,4 +58,13 @@ export default class App extends Component {
     };
 };
 
+
+    /*state = {
+        criteriaValue: '',
+        filterValue: ''
+    };*/
+
+    //setCriteriaValue={this.setCriteriaValue}
+    //setFilterValue={this.setFilterValue}
+    //const { filterValue, criteriaValue } = this.state;
 
