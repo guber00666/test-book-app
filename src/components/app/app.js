@@ -4,13 +4,27 @@ import CriteriaSelect from '../criteria-select';
 import FilterInput from '../filter-input'; // FilterInput
 import List from '../list';
 import { books } from '../../services/books-service';
+import reducer from '../reducers/reducer';
+import { createStore } from 'redux';
+
+const initialState = {
+    criteriaValue: '',
+    filterValue: ''
+};
+
+const store = createStore(reducer, initialState);
+
 
 export default class App extends Component {
 
-    state = {
+    /*state = {
         criteriaValue: '',
         filterValue: ''
-    };
+    };*/
+
+    //setCriteriaValue={this.setCriteriaValue}
+    //setFilterValue={this.setFilterValue}
+    //const { filterValue, criteriaValue } = this.state;
 
     setCriteriaValue = (newValue) => {
         this.setState({ criteriaValue: newValue });
@@ -28,7 +42,9 @@ export default class App extends Component {
     };
 
     render() {
-        const { filterValue, criteriaValue } = this.state;
+        const criteriaValue = store.getState().criteriaValue;
+
+        const filterValue = store.getState().filterValue;
 
         let keyForFiter = 'name';
 
@@ -46,8 +62,8 @@ export default class App extends Component {
             <div className="books-app">
                 <div className="container">
                     <h1>Books</h1>
-                    <CriteriaSelect setCriteriaValue={this.setCriteriaValue} />
-                    <FilterInput setFilterValue={this.setFilterValue} />
+                    <CriteriaSelect criteriaValue={store.getState().setCriteriaValue} /> 
+                    <FilterInput  filterValue={store.getState().setFilterValue} />
                     <List data={filter} />
 
                 </div>
