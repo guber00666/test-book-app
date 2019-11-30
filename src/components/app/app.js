@@ -1,48 +1,43 @@
 import React, { Component } from 'react';
-import './app.css';
 import CriteriaSelect from '../criteria-select';
-import FilterInput from '../filter-input'; // FilterInput
+import FilterInput from '../filter-input';
 import List from '../list';
 import { books } from '../../services/books-service';
-import { store } from '../store/index'
-
-
-
+import { store } from '../store/index';
+import './app.css';
 
 export default class App extends Component {
+    // setCriteriaValue = (newValue) => {
+    //     this.setState({ criteriaValue: newValue });
+    // };
 
-    setCriteriaValue = (newValue) => {
-        this.setState({ criteriaValue: newValue });
-    };
+    // setFilterValue = (newValue) => {
+    //     this.setState({ filterValue: newValue });
+    // }
 
-    setFilterValue = (newValue) => {
-        this.setState({ filterValue: newValue });
-    }
-
-    filterForElements = (arr, value, key) => {
-        return arr.filter((item) => item[key]
+    filterForElements = (books, filterValue, criteriaValue) => {
+        let keyForFiter;
+        switch (criteriaValue) {
+            case ("1"):
+                keyForFiter = 'genre';
+                break;
+            case ("2"):
+                keyForFiter = 'author';
+                break;
+            default:
+                keyForFiter = 'name';
+        };
+        
+        return books.filter((item) => item[keyForFiter]
             .toLowerCase()
-            .includes(value.toLowerCase())
+            .includes(filterValue.toLowerCase())
         );
     };
 
     render() {
+        const { criteriaValue, filterValue } = store.getState();
 
-        const criteriaValue = store.getState().criteriaValue;
-
-        const filterValue = store.getState().filterValue;
-
-        let keyForFiter = 'name';
-
-        switch (criteriaValue) {
-            case ("1"):
-                keyForFiter = 'genre'
-                break
-            case ("2"):
-                keyForFiter = 'author'
-                break
-        };
-        const filter = this.filterForElements(books, filterValue, keyForFiter);
+        const filter = this.filterForElements(books, filterValue, criteriaValue);
 
         return (
             <div className="books-app">
