@@ -1,9 +1,10 @@
 
 import { createStore } from 'redux';
 import reducer from '../reducers';
+import { criteriaOptions } from '../services/books-service';
 
 const initialState = {
-    criteriaValue: '',
+    criteriaValue: criteriaOptions[0].value,
     filterValue: ''
 };
 

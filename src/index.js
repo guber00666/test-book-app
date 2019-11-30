@@ -1,6 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/app';
+import { store } from '../src/store/index';
 
-ReactDOM.render(<App />,
-  document.getElementById('root'));
+const render = () => {
+    ReactDOM.render(
+        <App />,
+        document.getElementById('root')
+    );
+};
+
+render();
+
+store.subscribe(render);

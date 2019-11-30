@@ -1,9 +1,10 @@
 import React from 'react';
 
 import './criteria-select.css';
-import { criteriaOptions } from '../../services/books-service'
+import { criteriaOptions } from '../../services/books-service';
 
 const CriteriaSelect = (props) => {
+
     const setCriteriaValue = props.setCriteriaValue;
 
     const rowsOptions = criteriaOptions.map((el, id) => {
@@ -18,7 +19,8 @@ const CriteriaSelect = (props) => {
                 <label>Criteria select</label>
                 <select className="form-control"
                     onChange={
-                        event => setCriteriaValue(event.target.value)} >
+                        event => setCriteriaValue(event.target.value)}
+                >
                     {rowsOptions}
                 </select>
             </div>
