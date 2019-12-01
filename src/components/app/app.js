@@ -4,7 +4,9 @@ import FilterInput from '../filter-input';
 import List from '../list';
 import { books } from '../../services/books-service';
 import { store } from '../../store/index';
-import { getFilterAction, getCriteriaAction } from '../../actions/index'
+import { getFilterAction,
+         getCriteriaAction,
+         getPaginatorAction  } from '../../actions/index'
 import './app.css';
 
 
@@ -16,6 +18,10 @@ export default class App extends Component {
 
     setCriteriaValue = (newValue) => {
         store.dispatch(getCriteriaAction(newValue));
+    };
+
+    setPaginatorValue = (newValue) => {
+        store.dispatch(getPaginatorAction (newValue));
     };
 
 
@@ -50,7 +56,8 @@ export default class App extends Component {
                     <h1>Books</h1>
                     <CriteriaSelect setCriteriaValue={this.setCriteriaValue} />
                     <FilterInput setFilterValue={this.setFilterValue} />
-                    <List data={filter} />
+                    <List data={filter}
+                    setPaginatorValue={this.setPaginatorValue} />
 
                 </div>
             </div>

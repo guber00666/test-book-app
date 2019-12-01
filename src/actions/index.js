@@ -11,3 +11,11 @@ export const getFilterAction = (newValue) => {
             filterValue: newValue 
     }
 }
+
+export const getPaginatorAction = (newValue) => {
+    return {
+        type: 'SET_PAGE',
+        paginatorValue: newValue,
+        buttonClass: "btn btn-outline-dark active"
+    }
+}

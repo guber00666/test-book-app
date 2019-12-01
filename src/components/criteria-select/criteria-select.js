@@ -19,8 +19,8 @@ const CriteriaSelect = (props) => {
                 <label>Criteria select</label>
                 <select className="form-control"
                     onChange={
-                        event => setCriteriaValue(event.target.value)}
-                >
+                        event => setCriteriaValue(event.target.value)
+                        }>
                     {rowsOptions}
                 </select>
             </div>

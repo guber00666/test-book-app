@@ -1,5 +1,6 @@
 
 export default function reducer(state, action) {
+    console.log(action)
     switch (action.type) {
         case "SET_CRITERIA":
             return {
@@ -11,6 +12,13 @@ export default function reducer(state, action) {
             return {
                 ...state,
                 filterValue: action.filterValue
+            };
+
+        case "SET_PAGE":
+            return {
+                ...state,
+                paginatorValue: action.paginatorValue,
+                buttonClass: action.buttonClass
             };
 
         default:

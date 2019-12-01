@@ -5,7 +5,9 @@ import { criteriaOptions } from '../services/books-service';
 
 const initialState = {
     criteriaValue: criteriaOptions[0].value,
-    filterValue: ''
+    filterValue: '',
+    paginatorValue: '0',
+    buttonClass: "btn btn-outline-dark"
 };
 
 export const store = createStore(reducer, initialState);
