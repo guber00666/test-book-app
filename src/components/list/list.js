@@ -28,6 +28,11 @@ const List = (props) => {
                     {rows}
                 </tbody>
             </table>
+            <div className="pagination-container">
+            <button type="button" class="btn btn-outline-dark">1</button>
+            <button type="button" class="btn btn-outline-dark">2</button>
+            <button type="button" class="btn btn-outline-dark">3</button>
+            </div>
         </div>
     );
 };
