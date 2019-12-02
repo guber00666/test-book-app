@@ -18,7 +18,6 @@ export default function reducer(state, action) {
             return {
                 ...state,
                 paginatorValue: action.paginatorValue,
-                buttonClass: action.buttonClass
             };
 
         default:

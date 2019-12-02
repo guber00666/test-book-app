@@ -7,7 +7,7 @@ const List = (props) => {
 
     const data = props.data;
 
-    const { paginatorValue, buttonClass } = store.getState();
+    const { paginatorValue } = store.getState();
 
 
     const setPaginatorValue = props.setPaginatorValue;
@@ -22,13 +22,21 @@ const List = (props) => {
 
     const numberOfPages = (Math.ceil(rows.length / 10));
 
-    const counter = [];
+    const counterPage = [];
 
     for (let i = 0; i < numberOfPages; i++) {
-        counter.push(i);
+        counterPage.push(i);
     };
 
-    const buttons = counter.map((el, key) => {
+    const buttons = counterPage.map((el, key) => {
+
+        const activeButton = "active"
+
+        let buttonClass = `btn btn-outline-dark`;
+
+        if (paginatorValue === `${el}`) {
+            buttonClass = `btn btn-outline-dark ${activeButton}`;
+        }; 
         return (
             <button
                 key={key} type="button"
@@ -43,12 +51,22 @@ const List = (props) => {
     });
 
     const Paginator = (rows, paginatorValue) => {
-        if (paginatorValue === "0") {
-            return rows.filter((item => item.key <= 9));
+
+        switch(paginatorValue) {
+            case("1"):
+                return rows.filter(item => item.key > 9 && item.key <= 19);
+
+            case("2"):
+                return rows.filter(item => item.key > 19 && item.key <= 29);
+
+            case("3"):
+                return rows.filter(item => item.key > 29);
+
+            default:
+                return rows.filter((item => item.key <= 9));
+
         }
-        else {
-            return rows.filter(item => item.key > 9 && item.key <= 19);
-        };
+
     };
 
     const paginator = Paginator(rows, paginatorValue);
