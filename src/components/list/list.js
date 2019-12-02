@@ -30,18 +30,16 @@ const List = (props) => {
 
     const buttons = counterPage.map((el, key) => {
 
-        const activeButton = "active"
-
         let buttonClass = `btn btn-outline-dark`;
 
-        if (paginatorValue === `${el}`) {
-            buttonClass = `btn btn-outline-dark ${activeButton}`;
+        if (paginatorValue === `${el + 1}`) {
+            buttonClass = "btn btn-outline-dark active";
         }; 
         return (
             <button
                 key={key} type="button"
                 className={buttonClass}
-                value={key}
+                value={key + 1}
                 onClick={
                     event => setPaginatorValue(event.target.value)
                 }>
@@ -51,23 +49,16 @@ const List = (props) => {
     });
 
     const Paginator = (rows, paginatorValue) => {
-
-        switch(paginatorValue) {
-            case("1"):
-                return rows.filter(item => item.key > 9 && item.key <= 19);
-
-            case("2"):
-                return rows.filter(item => item.key > 19 && item.key <= 29);
-
-            case("3"):
-                return rows.filter(item => item.key > 29);
-
-            default:
-                return rows.filter((item => item.key <= 9));
-
+        if (paginatorValue == "1") {
+            return rows.filter((item => item.key <= 9));
         }
-
+        else {
+            return rows.filter((item => {
+               return item.key > 10 * paginatorValue - 10 && item.key < 10 * paginatorValue;
+            }));        
+        }
     };
+
 
     const paginator = Paginator(rows, paginatorValue);
 
@@ -82,11 +73,11 @@ const List = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {paginator}
+                    { paginator }
                 </tbody>
             </table>
             <div className="pagination-container">
-                {buttons}
+                { buttons }
             </div>
         </div>
     );
@@ -95,3 +86,17 @@ const List = (props) => {
 
 export default List;
 
+/*switch(paginatorValue) {
+    case("1"):
+        return rows.filter(item => item.key > 9 && item.key <= 19);
+
+    case("2"):
+        return rows.filter(item => item.key > 19 && item.key <= 29);
+
+    case("3"):
+        return rows.filter(item => item.key > 29);
+
+    default:
+        return rows.filter((item => item.key <= 9));
+
+}*/
