@@ -6,7 +6,6 @@ import './list.css';
 const List = (props) => {
     const {data, setPaginatorValue} = props;
     const { paginatorValue } = store.getState(); 
-    console.log('List', data.length);
     const numberOfPages = (Math.ceil(data.length / countRowsOnPage));
 
     const page = numberOfPages < paginatorValue ? numberOfPages : paginatorValue;
