@@ -6,7 +6,7 @@ import { books } from '../../services/books-service';
 import { store } from '../../store/index';
 import { getFilterAction,
          getCriteriaAction,
-         getPaginatorAction  } from '../../actions/index'
+         getPaginatorAction  } from '../../actions/index';
 import './app.css';
 
 
@@ -48,7 +48,7 @@ export default class App extends Component {
     render() {
         const { criteriaValue, filterValue } = store.getState();
 
-        const filter = this.filterForElements(books, filterValue, criteriaValue);
+        const filter = this.filterForElements(books, filterValue, criteriaValue); //filter.slice
 
         return (
             <div className="books-app">
@@ -56,8 +56,7 @@ export default class App extends Component {
                     <h1>Books</h1>
                     <CriteriaSelect setCriteriaValue={this.setCriteriaValue} />
                     <FilterInput setFilterValue={this.setFilterValue} />
-                    <List data={filter}
-                    setPaginatorValue={this.setPaginatorValue} />
+                    <List data={filter} setPaginatorValue={this.setPaginatorValue} />
 
                 </div>
             </div>
