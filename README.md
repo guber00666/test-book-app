@@ -25,4 +25,8 @@
  Enter npm run dev.
  ******************
  The app will be displayed on localhost: 9000.
+
+ To run tests.
+ -------------
+ Enter npm run test.
    
