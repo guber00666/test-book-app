@@ -1,20 +1,12 @@
 import React from 'react';
 import { store } from '../../store/index';
 import { countRowsOnPage } from '../../services/books-service';
-//import './list.css';
 
 const List = (props) => {
-<<<<<<< HEAD
-    const {data, setPaginatorValue} = props;
-    const { paginatorValue } = store.getState(); 
-    const numberOfPages = (Math.ceil(data.length / countRowsOnPage));
-=======
-  
+
     const { data, setPaginatorValue } = props;
     const { paginatorValue } = store.getState();
->>>>>>> it
-
-    const numberOfPages = Math.ceil(data.length / countRowsOnPage);
+    const numberOfPages = (Math.ceil(data.length / countRowsOnPage));
     const page = numberOfPages < paginatorValue ? numberOfPages : paginatorValue;
 
     const paginatedData = data.slice((page - 1) * countRowsOnPage, countRowsOnPage * page);
@@ -28,9 +20,9 @@ const List = (props) => {
     });
 
     const counterPage = [];
-     for (let i = 0; i < numberOfPages; i++) {
-         counterPage.push(i + 1);
-     };
+    for (let i = 0; i < numberOfPages; i++) {
+        counterPage.push(i + 1);
+    };
 
     const buttons = counterPage.map((el) => {
 
@@ -60,11 +52,11 @@ const List = (props) => {
 
     return (
         <div className="list"
-                style={{
-                    marginTop: "30px",
-                    border: "solid 1px",
-                    borderRadius: "0.3 em"
-                }}>
+            style={{
+                marginTop: "30px",
+                border: "solid 1px",
+                borderRadius: "0.3 em"
+            }}>
             <table className="table">
                 <thead>
                     <tr >
@@ -74,16 +66,16 @@ const List = (props) => {
                     </tr>
                 </thead>
                 <tbody>
-                    { rows }
+                    {rows}
                 </tbody>
             </table>
             <div className="pagination-container"
-             style={{
-                marginTop: "30px",
-                marginBottom: "30px",
-                float: "right"
-            }}>
-                { buttons }
+                style={{
+                    marginTop: "30px",
+                    marginBottom: "30px",
+                    float: "right"
+                }}>
+                {buttons}
             </div>
         </div>
     );

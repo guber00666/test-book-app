@@ -7,8 +7,6 @@ import { store } from '../../store/index';
 import { getFilterAction,
          getCriteriaAction,
          getPaginatorAction  } from '../../actions/index';
-//import './app.css';
-
 
 export default class App extends Component {
 

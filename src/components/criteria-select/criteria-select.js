@@ -1,6 +1,5 @@
 import React from 'react';
 import { criteriaOptions } from '../../services/books-service';
-//import './criteria-select.css';
 
 const CriteriaSelect = (props) => {
 

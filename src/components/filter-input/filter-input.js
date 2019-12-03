@@ -1,5 +1,4 @@
 import React from 'react';
-//import './filter-input.css';
 
 const FilterInput = (props) => {
     const setFilterValue = props.setFilterValue;
