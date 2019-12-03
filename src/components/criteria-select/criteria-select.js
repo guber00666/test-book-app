@@ -1,7 +1,6 @@
 import React from 'react';
-
-import './criteria-select.css';
 import { criteriaOptions } from '../../services/books-service';
+//import './criteria-select.css';
 
 const CriteriaSelect = (props) => {
 
@@ -14,10 +13,17 @@ const CriteriaSelect = (props) => {
     });
 
     return (
-        <div className="criteria-select">
+        <div className="criteria-select"
+        style={{
+            marginTop: "30px",
+            fontWeight: "bold"
+        }}>
             <div className="form-group">
                 <label>Criteria select</label>
                 <select className="form-control"
+                style={{
+                        border: "solid 1px"
+                        }}
                     onChange={
                         event => setCriteriaValue(event.target.value)
                         }>
