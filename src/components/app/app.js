@@ -7,7 +7,7 @@ import { store } from '../../store/index';
 import { getFilterAction,
          getCriteriaAction,
          getPaginatorAction  } from '../../actions/index';
-import './app.css';
+//import './app.css';
 
 
 export default class App extends Component {
@@ -48,10 +48,13 @@ export default class App extends Component {
     render() {
         const { criteriaValue, filterValue } = store.getState();
 
-        const filter = this.filterForElements(books, filterValue, criteriaValue); //filter.slice
+        const filter = this.filterForElements(books, filterValue, criteriaValue);
 
         return (
-            <div className="books-app">
+            <div className="books-app"
+            style={{
+                marginTop: "30px"
+            }}>
                 <div className="container">
                     <h1>Books</h1>
                     <CriteriaSelect setCriteriaValue={this.setCriteriaValue} />

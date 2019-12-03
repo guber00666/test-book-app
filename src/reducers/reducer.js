@@ -1,5 +1,12 @@
+import { criteriaOptions } from '../services/books-service';
 
-export default function reducer(state, action) {
+export const initialState = {
+    criteriaValue: criteriaOptions[0].value,
+    filterValue: '',
+    paginatorValue: 1,
+};
+
+export default function reducer(state = initialState, action) {
     switch (action.type) {
         case "SET_CRITERIA":
             return {

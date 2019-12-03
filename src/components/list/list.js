@@ -1,13 +1,20 @@
 import React from 'react';
 import { store } from '../../store/index';
 import { countRowsOnPage } from '../../services/books-service';
-import './list.css';
+//import './list.css';
 
 const List = (props) => {
+<<<<<<< HEAD
     const {data, setPaginatorValue} = props;
     const { paginatorValue } = store.getState(); 
     const numberOfPages = (Math.ceil(data.length / countRowsOnPage));
+=======
+  
+    const { data, setPaginatorValue } = props;
+    const { paginatorValue } = store.getState();
+>>>>>>> it
 
+    const numberOfPages = Math.ceil(data.length / countRowsOnPage);
     const page = numberOfPages < paginatorValue ? numberOfPages : paginatorValue;
 
     const paginatedData = data.slice((page - 1) * countRowsOnPage, countRowsOnPage * page);
@@ -35,6 +42,10 @@ const List = (props) => {
 
         return (
             <button
+                style={{
+                    marginLeft: "5px",
+                    borderRadius: "0.3em"
+                }}
                 key={el} type="button"
                 className={buttonClass}
                 value={el}
@@ -48,7 +59,12 @@ const List = (props) => {
     });
 
     return (
-        <div className="list">
+        <div className="list"
+                style={{
+                    marginTop: "30px",
+                    border: "solid 1px",
+                    borderRadius: "0.3 em"
+                }}>
             <table className="table">
                 <thead>
                     <tr >
@@ -61,7 +77,12 @@ const List = (props) => {
                     { rows }
                 </tbody>
             </table>
-            <div className="pagination-container">
+            <div className="pagination-container"
+             style={{
+                marginTop: "30px",
+                marginBottom: "30px",
+                float: "right"
+            }}>
                 { buttons }
             </div>
         </div>

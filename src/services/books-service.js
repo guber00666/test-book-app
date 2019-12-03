@@ -45,7 +45,7 @@ export const books = [
   },
   {
     id: 8,
-    name: '	Idle Ideas in 1905',
+    name: 'Idle Ideas in 1905',
     author: 'Jerome K Jerome',
     genre: 'Humorous Fiction Read'
   },
@@ -89,7 +89,7 @@ export const books = [
   },
   {
     id: 15,
-    name: '	Batard',
+    name: 'Batard',
     author: 'London Jack',
     genre: 'Adventure'
   },
@@ -183,13 +183,13 @@ export const books = [
 
   {
     id: 30,
-    name: '	Poor Folk',
+    name: 'Poor Folk',
     author: 'Dostoevsky Fyodor	',
     genre: 'Novel'
   },
   {
     id: 31,
-    name: '	Sixes and Sevens',
+    name: 'Sixes and Sevens',
     author: 'Henry O',
     genre: 'Short Stories'
   },
