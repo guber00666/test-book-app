@@ -1,20 +1,23 @@
-export const getCriteriaAction = (newValue) => {
-    return {
-        type: 'SET_CRITERIA',
-        criteriaValue: newValue
-    };
-};
 
-export const getFilterAction = (newValue) => {
+export const mapDispatchToProps = (dispatch) => {
     return {
-            type: 'SET_FILTER',
-            filterValue: newValue 
-    };
-};
-
-export const getPaginatorAction = (newValue) => {
-    return {
-        type: 'SET_PAGE',
-        paginatorValue: newValue,
-    };
-};
+        setFilterValue: (newValue) => {
+            dispatch({
+                type: 'SET_FILTER',
+                filterValue: newValue 
+            })
+        },
+        setCriteriaValue: (newValue) => {
+            dispatch({
+                type: 'SET_CRITERIA',
+                criteriaValue: newValue
+            })
+        },
+        setPaginatorValue: (newValue) => {
+            dispatch({
+                type: 'SET_PAGE',
+                paginatorValue: newValue 
+            })
+        }
+    }
+}

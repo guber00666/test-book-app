@@ -32,6 +32,13 @@ export default function reducer(state = initialState, action) {
 
 
 }
+export const mapStateToProps = (state) => {
+    return {
+        criteriaValue: state.criteriaValue,
+        filterValue: state.filterValue,
+        paginatorValue: state.paginatorValue
+    }
+}
 
 
 

@@ -2,26 +2,12 @@ import React, { Component } from 'react';
 import CriteriaSelect from '../criteria-select';
 import FilterInput from '../filter-input';
 import List from '../list';
+import { connect } from 'react-redux';
 import { books } from '../../services/books-service';
-import { store } from '../../store/index';
-import { getFilterAction,
-         getCriteriaAction,
-         getPaginatorAction  } from '../../actions/index';
+import { mapStateToProps } from '../../reducers/reducer'
+import { mapDispatchToProps } from '../../actions/index'
 
-export default class App extends Component {
-
-    setFilterValue = (newValue) => {
-        store.dispatch(getFilterAction(newValue));
-    };
-
-    setCriteriaValue = (newValue) => {
-        store.dispatch(getCriteriaAction(newValue));
-    };
-
-    setPaginatorValue = (newValue) => {
-        store.dispatch(getPaginatorAction (newValue));
-    };
-
+ class App extends Component {
 
     filterForElements = (books, filterValue, criteriaValue) => {
         let keyForFiter;
@@ -44,7 +30,7 @@ export default class App extends Component {
 
 
     render() {
-        const { criteriaValue, filterValue } = store.getState();
+        const { criteriaValue, filterValue } = this.props;
 
         const filter = this.filterForElements(books, filterValue, criteriaValue);
 
@@ -55,9 +41,9 @@ export default class App extends Component {
             }}>
                 <div className="container">
                     <h1>Books</h1>
-                    <CriteriaSelect setCriteriaValue={this.setCriteriaValue} />
-                    <FilterInput setFilterValue={this.setFilterValue} />
-                    <List data={filter} setPaginatorValue={this.setPaginatorValue} />
+                    <CriteriaSelect setCriteriaValue={this.props.setCriteriaValue} />
+                    <FilterInput setFilterValue={this.props.setFilterValue} />
+                    <List data={filter} setPaginatorValue={this.props.setPaginatorValue} />
 
                 </div>
             </div>
@@ -65,6 +51,6 @@ export default class App extends Component {
     };
 };
 
-
+export default connect(mapStateToProps, mapDispatchToProps)(App);
 
 
