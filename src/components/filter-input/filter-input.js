@@ -1,4 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import {
+    mapStateToFilterProps,
+    mapDispatchToFilterProps
+} from '../../actions/index'
 
 const FilterInput = (props) => {
     const setFilterValue = props.setFilterValue;
@@ -16,4 +21,4 @@ const FilterInput = (props) => {
     );
 };
 
-export default FilterInput;
+export default connect(mapStateToFilterProps, mapDispatchToFilterProps)(FilterInput);

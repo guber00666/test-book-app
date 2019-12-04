@@ -28,17 +28,9 @@ export default function reducer(state = initialState, action) {
 
         default:
             return state;
-    }
+    };
+};
 
-
-}
-export const mapStateToProps = (state) => {
-    return {
-        criteriaValue: state.criteriaValue,
-        filterValue: state.filterValue,
-        paginatorValue: state.paginatorValue
-    }
-}
 
 
 
