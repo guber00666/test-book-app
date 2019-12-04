@@ -20,7 +20,7 @@
  ---------
  Enter npm run build.
 
- To run dev.
+ To run developend.
  -----------
  Enter npm run dev.
  ******************
