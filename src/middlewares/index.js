@@ -16,7 +16,7 @@ export const crashReporter = store => next => action => {
           action,
           state: store.getState()
         }
-      })
+      });
       throw err
     }
   };
