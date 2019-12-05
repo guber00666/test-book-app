@@ -3,7 +3,7 @@
 
  Test task for employment.
  *************************
- The application allows you to filter the data. In order to filter the data, select a criterion from the options in the filter and type the desired data in the search box. Or you can view them by switching pages.
+ The application allows you to filter the data. In order to filter the data, select a criterion from the options in the filter and type the desired data in the search box. Or you can view them by switching pages.Implemented simple logging and error catching via middleware.
  *********************************
  The application receives data and displays and filters them, also implemented React-Redux, 
  pagination, simple layout and implemented simple tests.
