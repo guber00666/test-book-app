@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux'
 import reducer from '../src/reducers';
 import App from './components/app';
-
-
-const store = createStore(reducer);
+import { logger,
+         crashReporter } from '../src/middlewares/index';
+         
+const store = createStore(reducer,  
+  applyMiddleware(logger, crashReporter));
 
 ReactDOM.render(
   <Provider store={store}>
