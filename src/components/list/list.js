@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { books } from '../../services/books-service';
-import { countRowsOnPage } from '../../services/books-service';
+import { countRowsOnPage } from '../../constants/constants';
 import {
     mapStateToListProps,
-    mapDispatchToListProps
-} from '../../actions/index'
+    mapDispatchToListProps,
+} from '../../actions/index';
 
 class List extends Component {
+
+
+
 
     filterForElements = (books, filterValue, criteriaValue) => {
         let keyForFiter;
@@ -20,7 +22,7 @@ class List extends Component {
                 break;
             default:
                 keyForFiter = 'name';
-        };
+        }
         return books.filter((item) => item[keyForFiter]
             .toLowerCase()
             .includes(filterValue.toLowerCase())
@@ -29,7 +31,12 @@ class List extends Component {
 
     render() {
 
-        const { criteriaValue, filterValue, paginatorValue, setPaginatorValue } = this.props;
+        const { criteriaValue,
+                filterValue,
+                paginatorValue,
+                setPaginatorValue,
+                books} = this.props;
+
 
         const filter = this.filterForElements(books, filterValue, criteriaValue);
 
@@ -50,7 +57,7 @@ class List extends Component {
         const counterPage = [];
         for (let i = 0; i < numberOfPages; i++) {
             counterPage.push(i + 1);
-        };
+        }
 
 
         const buttons = counterPage.map((el) => {
@@ -59,7 +66,7 @@ class List extends Component {
 
             if (page === el) {
                 buttonClass = "btn btn-outline-dark active";
-            };
+            }
 
             return (
                 <button
@@ -108,7 +115,7 @@ class List extends Component {
             </div>
         );
     }
-};
+}
 
 
 export default connect(mapStateToListProps, mapDispatchToListProps)(List);

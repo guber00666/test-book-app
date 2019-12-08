@@ -1,9 +1,10 @@
-import { criteriaOptions } from '../services/books-service';
+import { criteriaOptions } from '../constants/constants';
 
 export const initialState = {
     criteriaValue: criteriaOptions[0].value,
     filterValue: '',
     paginatorValue: 1,
+    books: [],
 };
 
 export default function reducer(state = initialState, action) {
@@ -26,9 +27,16 @@ export default function reducer(state = initialState, action) {
                 paginatorValue: action.paginatorValue,
             };
 
+        case 'BOOKS_FETCH_DATA_SUCCESS':
+            return {
+                ...state,
+                books: action.books
+            };
+
+
         default:
             return state;
-    };
+    }
 };
 
 

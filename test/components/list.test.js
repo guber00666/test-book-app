@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { books } from '../../src/services/books-service'
+import { books } from '../../src/constants/constants'
 import List from "../../src/components/list";
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';

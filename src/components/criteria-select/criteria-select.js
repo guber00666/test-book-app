@@ -1,5 +1,5 @@
 import React from 'react';
-import { criteriaOptions } from '../../services/books-service';
+import { criteriaOptions } from '../../constants/constants';
 import { connect } from 'react-redux';
 import {
     mapStateToCriteriaProps,
