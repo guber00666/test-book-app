@@ -8,7 +8,9 @@ import {
 
 class List extends Component {
 
-
+    componentDidMount() {
+        this.props.fetchData("http://localhost:3002/books");
+    }
 
 
     filterForElements = (books, filterValue, criteriaValue) => {
@@ -34,7 +36,8 @@ class List extends Component {
         const { criteriaValue,
                 filterValue,
                 paginatorValue,
-                setPaginatorValue,
+                hasErrored,
+                isLoading,
                 books} = this.props;
 
 
@@ -53,6 +56,7 @@ class List extends Component {
                 <td>{el.author}</td>
             </tr>);
         });
+
 
         const counterPage = [];
         for (let i = 0; i < numberOfPages; i++) {

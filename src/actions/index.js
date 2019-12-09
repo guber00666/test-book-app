@@ -22,6 +22,7 @@ export const mapDispatchToCriteriaProps = (dispatch) => {
 
 export const mapDispatchToListProps = (dispatch) => {
     return {
+        fetchData: (url) => dispatch(booksFetchData(url)),
         setPaginatorValue: (newValue) => {
             dispatch({
                 type: 'SET_PAGE',
@@ -29,12 +30,6 @@ export const mapDispatchToListProps = (dispatch) => {
 
             });
         }
-    };
-};
-
-export const mapDispatchToBooksProps = (dispatch) => {
-    return {
-        fetchData: (url) => dispatch(booksFetchData(url))
     };
 };
 
@@ -81,17 +76,14 @@ export function booksFetchData(url) {
 }
 
 
-export const mapStateToAppProps = (state) => {
-    return {
-        books: state.books
-    };
-};
 
 export const mapStateToListProps = (state) => {
     return {
         paginatorValue: state.paginatorValue,
         criteriaValue: state.criteriaValue,
         filterValue: state.filterValue,
+        isLoading: state.isLoading,
+        hasErrored: state.hasErrored,
         books: state.books
 
     };

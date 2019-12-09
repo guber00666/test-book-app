@@ -5,6 +5,8 @@ export const initialState = {
     filterValue: '',
     paginatorValue: 1,
     books: [],
+    isLoading: true,
+    hasErrored: false
 };
 
 export default function reducer(state = initialState, action) {
@@ -32,6 +34,19 @@ export default function reducer(state = initialState, action) {
                 ...state,
                 books: action.books
             };
+
+        case 'BOOKS_IS_LOADING':
+            return {
+                ...state,
+                hasErrored: action.hasErrored
+            };
+
+        case 'BOOKS_HAS_ERRORED':
+            return {
+                ...state,
+                isLoading: action.isLoading
+            };
+
 
 
         default:
