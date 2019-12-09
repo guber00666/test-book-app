@@ -83,10 +83,7 @@ export function booksFetchData(url) {
 
 export const mapStateToAppProps = (state) => {
     return {
-        books: state.books,
-        hasErrored: state.booksHasErrored,
-        isLoading: state.booksIsLoading
-
+        books: state.books
     };
 };
 
@@ -95,9 +92,7 @@ export const mapStateToListProps = (state) => {
         paginatorValue: state.paginatorValue,
         criteriaValue: state.criteriaValue,
         filterValue: state.filterValue,
-        books: state.books,
-        hasErrored: state.booksHasErrored,
-        isLoading: state.booksIsLoading
+        books: state.books
 
     };
 };
