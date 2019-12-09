@@ -51,6 +51,7 @@
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "request": "^2.88.0",
-    "request-promise": "^4.2.5"
+    "request-promise": "^4.2.5",
+    "serialize-javascript": "^2.1.2"
   }
 }
