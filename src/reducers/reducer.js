@@ -38,13 +38,13 @@ export default function reducer(state = initialState, action) {
         case 'BOOKS_IS_LOADING':
             return {
                 ...state,
-                hasErrored: action.hasErrored
+                isLoading: action.isLoading
             };
 
         case 'BOOKS_HAS_ERRORED':
             return {
                 ...state,
-                isLoading: action.isLoading
+                hasErrored: action.hasErrored
             };
 
 

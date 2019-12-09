@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Spinner from '../spinner';
 import { countRowsOnPage } from '../../constants/constants';
 import {
     mapStateToListProps,
@@ -9,9 +10,10 @@ import {
 class List extends Component {
 
     componentDidMount() {
-        this.props.fetchData("http://localhost:3002/books");
+        setTimeout(() =>{
+            this.props.fetchData("http://localhost:3002/books")
+        } , 5000);
     }
-
 
     filterForElements = (books, filterValue, criteriaValue) => {
         let keyForFiter;
@@ -36,10 +38,12 @@ class List extends Component {
         const { criteriaValue,
                 filterValue,
                 paginatorValue,
+                setPaginatorValue,
                 hasErrored,
                 isLoading,
                 books} = this.props;
 
+        const errorMessage = <h1 style={{textAlign: "center"}}>Sorry can't get data from server.</h1>;
 
         const filter = this.filterForElements(books, filterValue, criteriaValue);
 
@@ -57,12 +61,10 @@ class List extends Component {
             </tr>);
         });
 
-
         const counterPage = [];
         for (let i = 0; i < numberOfPages; i++) {
             counterPage.push(i + 1);
         }
-
 
         const buttons = counterPage.map((el) => {
 
@@ -88,6 +90,26 @@ class List extends Component {
                 </button>
             );
         });
+        const tableRows = (
+            <table className="table">
+                <thead>
+                <tr >
+                    <th scope="col">Name</th>
+                    <th scope="col">Genre</th>
+                    <th scope="col">Authors</th>
+                </tr>
+                </thead>
+                <tbody>
+                {rows}
+                </tbody>
+            </table>
+        );
+
+        const spinner = isLoading&&!hasErrored  ? <Spinner /> : null;
+
+        const data = !isLoading ? tableRows : null;
+
+        const error = hasErrored ? errorMessage : null;
 
         return (
             <div className="list"
@@ -96,18 +118,9 @@ class List extends Component {
                     border: "solid 1px",
                     borderRadius: "0.3em"
                 }}>
-                <table className="table">
-                    <thead>
-                        <tr >
-                            <th scope="col">Name</th>
-                            <th scope="col">Genre</th>
-                            <th scope="col">Authors</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {rows}
-                    </tbody>
-                </table>
+                {data}
+                {spinner}
+                {error}
                 <div className="pagination-container"
                     style={{
                         marginTop: "30px",
@@ -120,7 +133,6 @@ class List extends Component {
         );
     }
 }
-
 
 export default connect(mapStateToListProps, mapDispatchToListProps)(List);
 

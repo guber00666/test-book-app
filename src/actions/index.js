@@ -1,3 +1,5 @@
+import { booksFetchData } from '../middlewares/index'
+
 export const mapDispatchToFilterProps = (dispatch) => {
     return {
         setFilterValue: (newValue) => {
@@ -27,7 +29,6 @@ export const mapDispatchToListProps = (dispatch) => {
             dispatch({
                 type: 'SET_PAGE',
                 paginatorValue: newValue,
-
             });
         }
     };
@@ -54,27 +55,6 @@ export function booksFetchDataSuccess(books) {
         books
     };
 }
-
-export function booksFetchData(url) {
-    return (dispatch) => {
-        dispatch(booksIsLoading(true));
-
-        fetch(url)
-            .then((response) => {
-                if (!response.ok) {
-                    throw Error(response.statusText);
-                }
-
-                dispatch(booksIsLoading(false));
-
-                return response;
-            })
-            .then((response) => response.json())
-            .then((items) => dispatch(booksFetchDataSuccess(items)))
-            .catch(() => dispatch(booksHasErrored(true)));
-    };
-}
-
 
 
 export const mapStateToListProps = (state) => {
