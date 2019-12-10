@@ -21,7 +21,7 @@
 
  To run developend.
  -----------
- Enter npm run dev.
+ Enter npm run dev and npm run server.
  ******************
  The app will be displayed on localhost: 9000.
 
