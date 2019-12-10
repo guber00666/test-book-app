@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Spinner from '../spinner';
 import { countRowsOnPage } from '../../constants/constants';
+import { ListStyles, PaginatorStyles } from "../styled-components/components-styles";
 import {
     mapStateToListProps,
     mapDispatchToListProps,
@@ -105,6 +106,7 @@ class List extends Component {
             </table>
         );
 
+
         const spinner = isLoading&&!hasErrored  ? <Spinner /> : null;
 
         const data = !isLoading ? tableRows : null;
@@ -112,24 +114,18 @@ class List extends Component {
         const error = hasErrored ? errorMessage : null;
 
         return (
-            <div className="list"
-                style={{
-                    marginTop: "30px",
-                    border: "solid 1px",
-                    borderRadius: "0.3em"
-                }}>
+            <ListStyles>
+            <div className="list">
                 {data}
                 {spinner}
                 {error}
-                <div className="pagination-container"
-                    style={{
-                        marginTop: "30px",
-                        marginBottom: "30px",
-                        float: "right"
-                    }}>
+                <PaginatorStyles>
+                <div className="pagination-container">
                     {buttons}
                 </div>
+                </PaginatorStyles>
             </div>
+            </ListStyles>
         );
     }
 }

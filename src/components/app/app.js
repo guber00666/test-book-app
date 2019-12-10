@@ -2,14 +2,13 @@ import React from 'react';
 import CriteriaSelect from '../criteria-select';
 import FilterInput from '../filter-input';
 import List from '../list';
+import { AppStyles } from "../styled-components/components-styles";
 
 const  App = () => {
 
     return (
-            <div className="books-app"
-                 style={{
-                     marginTop: "30px"
-                 }}>
+        <AppStyles>
+            <div className="books-app">
                 <div className="container">
                     <h1>Books</h1>
                     <CriteriaSelect />
@@ -18,6 +17,7 @@ const  App = () => {
 
                 </div>
             </div>
+        </AppStyles>
         )
 };
 

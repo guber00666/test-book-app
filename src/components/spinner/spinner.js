@@ -1,19 +1,35 @@
 import React from 'react';
-import './spinner.css';
+import {SpinnerPulse,
+        PulseElement,
+        NthChild1,
+        NthChild2,
+        NthChild3
+} from "../styled-components/spinner-styles";
 
 const Spinner = () => {
+
    return (
        <div className="spinner-container">
-           <div className="loadingio-spinner-pulse-wik0ujj64t">
-               <div className="ldio-9d4b96n4x05">
-                   <div></div>
-                   <div></div>
-                   <div></div>
-               </div>
-           </div>
+           <SpinnerPulse>
+               <PulseElement>
+                <div className="spinner-pulse">
+                    <div className="spinner-elements">
+                            <NthChild1>
+                                <div />
+                            </NthChild1>
+                            <NthChild2>
+                                <div />
+                            </NthChild2>
+                            <NthChild3>
+                                <div />
+                            </NthChild3>
+                        </div>
+                </div>
+               </PulseElement>
+           </SpinnerPulse>
        </div>
    );
-}
+};
 
 export default Spinner;
 

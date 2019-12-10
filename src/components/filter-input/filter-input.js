@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { SearchPanelStyles } from "../styled-components/components-styles";
 import {
     mapStateToFilterProps,
     mapDispatchToFilterProps
@@ -9,14 +10,13 @@ const FilterInput = (props) => {
     const setFilterValue = props.setFilterValue;
     return (
         <div className="search-panel">
-            <div className="input-group mb-3"></div>
+            <div className="input-group mb-3" />
+            <SearchPanelStyles>
             <input className="form-control"
-                style={{
-                    border: "solid 1px"
-                }}
                 onChange={
                     event => setFilterValue(event.target.value)}
                 placeholder="type for search" />
+            </SearchPanelStyles>
         </div>
     );
 };
