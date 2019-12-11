@@ -7,3 +7,6 @@ export const criteriaOptions = [
 ];
 
 export const countRowsOnPage = 10;
+
+
+export const books = [];

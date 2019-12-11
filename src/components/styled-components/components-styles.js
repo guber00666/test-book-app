@@ -17,7 +17,7 @@ export const CriteriaStyles = styled.div `
              margin-top: 30px;
              font-weight: bold;
     `;
-export const FormControllStyles = styled.div`
+export const FormStyles = styled.div`
              border: solid 1px;
              border-radius: 0.3em;
     `;
