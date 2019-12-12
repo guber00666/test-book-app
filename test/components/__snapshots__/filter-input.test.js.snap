@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FilterInput Component should be render on FilterInput 1`] = `
+<div
+  className="search-panel"
+>
+  <div
+    className="input-group mb-3"
+  />
+  <styled.div>
+    <input
+      className="form-control"
+      onChange={[Function]}
+      placeholder="type for search"
+    />
+  </styled.div>
+</div>
+`;

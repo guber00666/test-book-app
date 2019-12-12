@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<App /> should have styles 1`] = `
+.c0 {
+  margin-top: 30px;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`<App /> should render self and other imports 1`] = `
+<styled.div>
+  <section
+    className="books-app"
+  >
+    <div
+      className="container"
+    >
+      <h1>
+        Books
+      </h1>
+      <Connect(CriteriaSelect) />
+      <Connect(FilterInput) />
+      <Connect(List) />
+    </div>
+  </section>
+</styled.div>
+`;

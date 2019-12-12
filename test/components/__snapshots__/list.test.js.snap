@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`List Component should be render on List 1`] = `
+<StyledComponent
+  forwardedComponent={
+    Object {
+      "$$typeof": Symbol(react.forward_ref),
+      "attrs": Array [],
+      "componentStyle": ComponentStyle {
+        "componentId": "sc-EHOje",
+        "isStatic": false,
+        "lastClassName": "cGLZfi",
+        "rules": Array [
+          "
+              margin-top: 30px;
+              border: solid 1px;
+              border-radius: 0.3em;
+        ",
+        ],
+      },
+      "displayName": "styled.div",
+      "foldedComponentIds": Array [],
+      "render": [Function],
+      "styledComponentId": "sc-EHOje",
+      "target": "div",
+      "toString": [Function],
+      "warnTooManyClasses": [Function],
+      "withComponent": [Function],
+    }
+  }
+  forwardedRef={null}
+>
+  <div
+    className="list"
+  >
+    <Spinner />
+    <styled.div>
+      <div
+        className="pagination-container"
+      />
+    </styled.div>
+  </div>
+</StyledComponent>
+`;

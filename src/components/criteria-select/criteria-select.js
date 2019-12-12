@@ -5,7 +5,7 @@ import { CriteriaStyles, FormStyles } from "../styled-components/components-styl
 import {
     mapStateToCriteriaProps,
     mapDispatchToCriteriaProps
-} from '../../actions/index'
+} from '../../actions/index';
 
 const CriteriaSelect = (props) => {
 
