@@ -5,7 +5,6 @@ import FilterInput from '../../src/components/filter-input';
 import List from '../../src/components/list';
 import App from "../../src/components/app";
 import renderer from 'react-test-renderer'
-import { configure } from 'enzyme';
 import { AppStyles } from "../../src/components/styled-components/components-styles";
 import 'jest-styled-components';
 
@@ -13,19 +12,19 @@ configure({ adapter: new Adapter() });
 
 describe('<App />', () => {
     it('should render self and other imports', () => {
-        const renderedComponent = shallow(
+        const wrapperApp = shallow(
             <App/>
         );
-        expect(renderedComponent.find('section').hasClass("books-app")).toBe(true);
-        expect(renderedComponent.find('div').hasClass("container")).toBe(true);
-        expect(renderedComponent.find('h1').text()).toBe('Books');
+        expect(wrapperApp.find('section').hasClass("books-app")).toBe(true);
+        expect(wrapperApp.find('div').hasClass("container")).toBe(true);
+        expect(wrapperApp.find('h1').text()).toBe('Books');
 
-        expect(renderedComponent.find(AppStyles)).toBeDefined();
-        expect(renderedComponent.find(CriteriaSelect)).toBeDefined();
-        expect(renderedComponent.find(FilterInput)).toBeDefined();
-        expect(renderedComponent.find(List)).toBeDefined();
+        expect(wrapperApp.find(AppStyles)).toBeDefined();
+        expect(wrapperApp.find(CriteriaSelect)).toBeDefined();
+        expect(wrapperApp.find(FilterInput)).toBeDefined();
+        expect(wrapperApp.find(List)).toBeDefined();
 
-        expect(renderedComponent).toMatchSnapshot();
+        expect(wrapperApp).toMatchSnapshot();
 
     });
     it('should have styles', () => {

@@ -9,7 +9,7 @@ import {
 const FilterInput = (props) => {
     const setFilterValue = props.setFilterValue;
     return (
-        <div className="search-panel">
+        <section className="search-panel">
             <div className="input-group mb-3" />
             <SearchPanelStyles>
             <input className="form-control"
@@ -17,7 +17,7 @@ const FilterInput = (props) => {
                     event => setFilterValue(event.target.value)}
                 placeholder="type for search" />
             </SearchPanelStyles>
-        </div>
+        </section>
     );
 };
 

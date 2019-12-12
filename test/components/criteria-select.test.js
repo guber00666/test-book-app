@@ -4,7 +4,6 @@ import CriteriaSelect from '../../src/components/criteria-select';
 import renderer from 'react-test-renderer'
 import { Provider } from 'react-redux';
 import { CriteriaStyles, FormStyles } from "../../src/components/styled-components/components-styles";
-import { configure } from 'enzyme';
 import configureStore from 'redux-mock-store'
 import 'jest-styled-components';
 import {
@@ -32,7 +31,7 @@ describe("<CriteriaSelect />",() => {
 
     it('CriteriaSelect should render self and other imports', () => {
         expect(wrapperCriteria.find('section').hasClass("criteria-select")).toBe(true);
-        expect(wrapperCriteria.find('div.form-group').length).toBe(1);
+        expect(wrapperCriteria.find('div').at(1).hasClass("form-group")).toBe(true);
         expect(wrapperCriteria.find('label').text()).toBe('Criteria select');
         expect(wrapperCriteria.find('select').hasClass("form-control")).toBe(true);
 
@@ -61,9 +60,6 @@ describe("<CriteriaSelect />",() => {
        wrapperCriteria.find('option').at(1).simulate('change', event);
        wrapperCriteria.update();
        expect(wrapperCriteria.find('option').at(1).prop('value')).toEqual('1');
-       wrapperCriteria.find('option').at(2).simulate('change', event.target.value + 1);
-       wrapperCriteria.update();
-       expect(wrapperCriteria.find('option').at(2).prop('value')).toEqual('2');
     });
 
     it('criteriaValue should show previously rolled value', () => {
