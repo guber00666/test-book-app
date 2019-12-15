@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Spinner from '../spinner';
 import { countRowsOnPage } from '../../constants/constants';
-import { ListStyles, PaginatorStyles } from "../styled-components/components-styles";
+import { StyledList, StyledPaginator } from "../styled-components/components-styles";
+import { filterForElements } from "../utils/ListUtils";
 import {
     mapStateToListProps,
     mapDispatchToListProps,
@@ -15,25 +16,6 @@ class List extends Component {
             this.props.fetchData("http://localhost:3002/books")
         } , 5000);
     }
-
-    filterForElements = (books, filterValue, criteriaValue) => {
-        let keyForFiter;
-        switch (criteriaValue) {
-            case ("1"):
-                keyForFiter = 'genre';
-                break;
-            case ("2"):
-                keyForFiter = 'author';
-                break;
-            default:
-                keyForFiter = 'name';
-        }
-        return books.filter((item) => item[keyForFiter]
-            .toLowerCase()
-            .includes(filterValue.toLowerCase())
-        );
-    };
-
     render() {
 
         const { criteriaValue,
@@ -46,7 +28,7 @@ class List extends Component {
 
         const errorMessage = <h1 style={{textAlign: "center"}}>Sorry can't get data from server.</h1>;
 
-        const filter = this.filterForElements(books, filterValue, criteriaValue);
+        const filter = filterForElements(books, filterValue, criteriaValue);
 
         const numberOfPages = (Math.ceil(filter.length / countRowsOnPage));
 
@@ -114,18 +96,18 @@ class List extends Component {
         const error = hasErrored ? errorMessage : null;
 
         return (
-            <ListStyles>
+            <StyledList>
             <div className="list">
                 {data}
                 {spinner}
                 {error}
-                <PaginatorStyles>
+                <StyledPaginator>
                 <div className="pagination-container">
                     {buttons}
                 </div>
-                </PaginatorStyles>
+                </StyledPaginator>
             </div>
-            </ListStyles>
+            </StyledList>
         );
     }
 }

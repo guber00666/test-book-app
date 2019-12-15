@@ -1,120 +1,104 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import List from "../../src/components/list";
-import Spinner from "../../src/components/spinner";
 import Adapter from "enzyme-adapter-react-16/build";
-import reducer from '../../src/reducers/reducer';
-import {books, countRowsOnPage} from '../../src/constants/constants'
+import renderer from 'react-test-renderer'
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import { ListStyles, PaginatorStyles } from "../../src/components/styled-components/components-styles";
-import {configure, shallow} from "enzyme/build";
-
+import { StyledList, StyledPaginator } from "../../src/components/styled-components/components-styles";
+import configureStore from "redux-mock-store";
+import 'jest-styled-components';
+import { filterForElements } from "../../src/components/utils/ListUtils";
+import {
+    mapStateToListProps,
+    mapDispatchToListProps,
+} from '../../src/actions/index';
 
 configure({ adapter: new Adapter() });
 
-test("Render List without crashing", () => {
-    const rootDiv = document.createElement("div");
-    const store = createStore(reducer);
-    ReactDOM.render( 
+export const initialState = {
+    criteriaValue: '0',
+    filterValue: '',
+    paginatorValue: 1,
+    books: [],
+    isLoading: true,
+    hasErrored: false
+};
+
+const middlewares = [];
+const mockStore = configureStore(middlewares);
+const store = mockStore(initialState);
+
+
+describe("<List />", () => {
+
+    const wrapperList = mount(
         <Provider store={store}>
-            <List data={books} />
-          </Provider>,
-          rootDiv);
-    ReactDOM.unmountComponentAtNode(rootDiv);
+            <List />
+        </Provider>
+    );
+
+    it('should be render self and other import', () => {
+        expect(wrapperList.find('div').at(1).hasClass('list')).toBe(true);
+        expect(wrapperList.find('div').at(14).hasClass('pagination-container')).toBe(true);
+
+        expect(wrapperList.find(StyledList)).toBeDefined();
+        expect(wrapperList.find(StyledPaginator)).toBeDefined();
+
+        expect(wrapperList).toMatchSnapshot();
+    });
+
+    it('List should have styles', () => {
+        const listStyles = renderer.create(<StyledList />).toJSON();
+        expect(listStyles).toHaveStyleRule('margin-top', '30px');
+        expect(listStyles).toHaveStyleRule('border', 'solid 1px');
+        expect(listStyles).toHaveStyleRule('border-radius', '0.3em');
+
+        const paginatorStyles = renderer.create(<StyledPaginator />).toJSON();
+        expect(paginatorStyles).toHaveStyleRule('margin-top', '30px');
+        expect(paginatorStyles).toHaveStyleRule('margin-bottom', '30px');
+        expect(paginatorStyles).toHaveStyleRule('float', 'right');
+
+        expect(wrapperList).toMatchSnapshot();
+    });
+
+    it('List should show previously rolled value', () => {
+        expect(mapStateToListProps(initialState).criteriaValue).toEqual("0");
+        expect(mapStateToListProps(initialState).filterValue).toEqual("");
+        expect(mapStateToListProps(initialState).paginatorValue).toEqual(1);
+        expect(mapStateToListProps(initialState).books).toEqual([]);
+        expect(mapStateToListProps(initialState).isLoading).toEqual(true);
+        expect(mapStateToListProps(initialState).hasErrored).toEqual(false);
+    });
+
+    it('List should roll the dice again when onChange work out', () => {
+        const dispatch = jest.fn();
+
+        mapDispatchToListProps(dispatch).setPaginatorValue();
+        expect(dispatch.mock.calls[0][0]).toEqual({ type: 'SET_PAGE' });
+    });
+
 });
 
-describe("List Component", () => {
-    it("should be render on List", () => {
-
-       const filterForElements = (books, filterValue, criteriaValue) => {
-            let keyForFiter;
-            switch (criteriaValue) {
-                case ("1"):
-                    keyForFiter = 'genre';
-                    break;
-                case ("2"):
-                    keyForFiter = 'author';
-                    break;
-                default:
-                    keyForFiter = 'name';
+describe('filterForElements function', () => {
+    it('should be filter by critieriaValue and filterValue', () => {
+        const filter = filterForElements;
+        const books = [
+            {
+                id: 1,
+                name: 'Foundation',
+                author: 'Asimov Isaac',
+                genre: 'SciFi'
+            },
+            {
+                id: 2,
+                name: 'The Master and Margarita',
+                author: 'Bulgakov Mikhail',
+                genre: 'Fantasy'
             }
-            return books.filter((item) => item[keyForFiter]
-                .toLowerCase()
-                .includes(filterValue.toLowerCase())
-            );
-        };
-
-        const isLoading = true;
-
-        const hasErrored = false;
-
-        const filterValue = '';
-
-        const criteriaValue = "0";
-
-        const paginatorValue = 1;
-
-        const errorMessage = <h1 style={{textAlign: "center"}}>Sorry can't get data from server.</h1>;
-
-        const filter = filterForElements(books, filterValue, criteriaValue);
-
-        const numberOfPages = (Math.ceil(filter.length / countRowsOnPage));
-
-        const page = numberOfPages < paginatorValue ? numberOfPages : paginatorValue;
-
-        const paginatedData = filter.slice((page - 1) * countRowsOnPage, countRowsOnPage * page);
-
-        const counterPage = [];
-        for (let i = 0; i < numberOfPages; i++) {
-            counterPage.push(i + 1);
-        }
-
-        const buttons = counterPage.map((el) => {
-
-            let buttonClass = `btn btn-outline-dark`;
-
-            if (page === el) {
-                buttonClass = "btn btn-outline-dark active";
-            }
-
-            return (
-                <button
-                    style={{
-                        marginLeft: "5px",
-                        borderRadius: "0.3em"
-                    }}
-                    key={el} type="button"
-                    className={buttonClass}
-                    value={el}
-                    onClick={
-                        event => setPaginatorValue(Number(event.target.value))
-                    }>
-                    {el}
-                </button>
-            );
-        });
-
-        const spinner = isLoading&&!hasErrored  ? <Spinner /> : null;
-
-        const data = !isLoading ? tableRows : null;
-
-        const error = hasErrored ? errorMessage : null;
-
-        const wrapper = shallow(
-            <ListStyles>
-                <div className="list">
-                    {data}
-                    {spinner}
-                    {error}
-                    <PaginatorStyles>
-                        <div className="pagination-container">
-                            {buttons}
-                        </div>
-                    </PaginatorStyles>
-                </div>
-            </ListStyles>
-        );
-        expect(wrapper).toMatchSnapshot();
-    })
+            ];
+        const filterValue = 'SciFi';
+        const criteriaValue = '1';
+        expect(filter
+        (books, filterValue, criteriaValue))
+            .toEqual([{"author": "Asimov Isaac", "genre": "SciFi", "id": 1, "name": "Foundation"}]);
+    });
 });

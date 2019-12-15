@@ -1,7 +1,7 @@
 import React from 'react';
-import { criteriaOptions } from '../../constants/constants';
 import { connect } from 'react-redux';
-import { CriteriaStyles, FormStyles } from "../styled-components/components-styles";
+import { StyledCriteria, StyledForm } from "../styled-components/components-styles";
+import { rowsOptions } from "../utils/CritreiaSelectUtils";
 import {
     mapStateToCriteriaProps,
     mapDispatchToCriteriaProps
@@ -11,19 +11,12 @@ const CriteriaSelect = (props) => {
 
     const setCriteriaValue = props.setCriteriaValue;
 
-    const rowsOptions = criteriaOptions.map((el, id) => {
-
-        return (
-            <option key={id} value={el.value}>{el.label}</option>
-        );
-    });
-
     return (
-        <CriteriaStyles>
+        <StyledCriteria>
         <section className="criteria-select">
             <div className="form-group">
                 <label>Criteria select</label>
-                <FormStyles>
+                <StyledForm>
                 <select
                     className="form-control"
                     onChange={
@@ -31,10 +24,10 @@ const CriteriaSelect = (props) => {
                     }>
                     {rowsOptions}
                 </select>
-                </FormStyles>
+                </StyledForm>
             </div>
         </section>
-        </CriteriaStyles>
+        </StyledCriteria>
     );
 };
 

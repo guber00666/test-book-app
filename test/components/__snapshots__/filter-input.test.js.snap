@@ -20,12 +20,11 @@ exports[`<FilterInput />  Frilterinput should render self and other imports 1`] 
 <Provider
   store={
     Object {
-      "clearActions": [Function],
       "dispatch": [Function],
-      "getActions": [Function],
       "getState": [Function],
       "replaceReducer": [Function],
       "subscribe": [Function],
+      Symbol(observable): [Function],
     }
   }
 >
@@ -76,6 +75,7 @@ exports[`<FilterInput />  Frilterinput should render self and other imports 1`] 
                 className="form-control"
                 onChange={[Function]}
                 placeholder="type for search"
+                value=""
               />
             </div>
           </StyledComponent>

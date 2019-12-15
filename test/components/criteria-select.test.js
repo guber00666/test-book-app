@@ -1,25 +1,24 @@
 import React from "react";
 import Adapter from "enzyme-adapter-react-16/build";
 import CriteriaSelect from '../../src/components/criteria-select';
-import renderer from 'react-test-renderer'
+import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux';
-import { CriteriaStyles, FormStyles } from "../../src/components/styled-components/components-styles";
-import configureStore from 'redux-mock-store'
+import {initialState} from '../../src/reducers/reducer';
+import { StyledCriteria, StyledForm } from "../../src/components/styled-components/components-styles";
 import 'jest-styled-components';
 import {
     mapStateToCriteriaProps,
     mapDispatchToCriteriaProps
 } from '../../src/actions/index';
+import {applyMiddleware, createStore} from "redux";
+import reducer from "../../src/reducers";
+import {crashReporter, logger} from "../../src/middlewares";
+import thunk from "redux-thunk";
 
 configure({ adapter: new Adapter() });
 
-const initialState = {
-    criteriaValue: "0"
-};
-
-const middlewares = [];
-const mockStore = configureStore(middlewares);
-const store = mockStore(initialState);
+const store = createStore(reducer,
+    applyMiddleware(logger, crashReporter, thunk));
 
 describe("<CriteriaSelect />",() => {
 
@@ -35,18 +34,18 @@ describe("<CriteriaSelect />",() => {
         expect(wrapperCriteria.find('label').text()).toBe('Criteria select');
         expect(wrapperCriteria.find('select').hasClass("form-control")).toBe(true);
 
-        expect(wrapperCriteria.find('CriteriaStyles')).toBeDefined();
-        expect(wrapperCriteria.find('FormStyles')).toBeDefined();
+        expect(wrapperCriteria.find('StyledCriteria')).toBeDefined();
+        expect(wrapperCriteria.find('StyledForm')).toBeDefined();
 
         expect(wrapperCriteria).toMatchSnapshot();
     });
 
     it('CriteriaSelect should have styles', () => {
-        const criteriaStyles = renderer.create(<CriteriaStyles />).toJSON();
+        const criteriaStyles = renderer.create(<StyledCriteria />).toJSON();
         expect(criteriaStyles).toHaveStyleRule('margin-top', '30px');
         expect(criteriaStyles).toHaveStyleRule('font-weight', 'bold');
 
-        const formStyles = renderer.create(<FormStyles />).toJSON();
+        const formStyles = renderer.create(<StyledForm />).toJSON();
         expect(formStyles).toHaveStyleRule('border', 'solid 1px');
         expect(formStyles).toHaveStyleRule('border-radius', '0.3em');
 

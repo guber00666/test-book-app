@@ -1,27 +1,27 @@
 import styled from "styled-components";
 
-export const ListStyles = styled.div `
+export const StyledList = styled.div `
               margin-top: 30px;
               border: solid 1px;
               border-radius: 0.3em;
         `;
-export const PaginatorStyles = styled.div `
+export const StyledPaginator = styled.div `
               margin-top: 30px;
               margin-bottom: 30px;
               float: right;
         `;
-export const AppStyles = styled.div `
+export const StyledApp = styled.div `
           margin-top: 30px;
     `;
-export const CriteriaStyles = styled.div `
+export const StyledCriteria = styled.div `
              margin-top: 30px;
              font-weight: bold;
     `;
-export const FormStyles = styled.div`
+export const StyledForm = styled.div`
              border: solid 1px;
              border-radius: 0.3em;
     `;
-export const SearchPanelStyles = styled.div `
+export const StyledSearchPanel = styled.div `
     border: solid 1px;
     border-radius: 0.3em;
 `;

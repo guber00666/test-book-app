@@ -1,22 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { SearchPanelStyles } from "../styled-components/components-styles";
+import { StyledSearchPanel } from "../styled-components/components-styles";
 import {
     mapStateToFilterProps,
     mapDispatchToFilterProps
 } from '../../actions/index'
 
 const FilterInput = (props) => {
-    const setFilterValue = props.setFilterValue;
+    const { setFilterValue, filterValue} = props;
+
     return (
         <section className="search-panel">
             <div className="input-group mb-3" />
-            <SearchPanelStyles>
-            <input className="form-control"
+            <StyledSearchPanel>
+            <input
+                value={filterValue}
+                className="form-control"
                 onChange={
                     event => setFilterValue(event.target.value)}
                 placeholder="type for search" />
-            </SearchPanelStyles>
+            </StyledSearchPanel>
         </section>
     );
 };
