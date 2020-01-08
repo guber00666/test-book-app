@@ -4,7 +4,7 @@ import { StyledSearchPanel } from "../styled-components/components-styles";
 import {
     mapStateToFilterProps,
     mapDispatchToFilterProps
-} from '../../actions/index'
+} from '../../actions/actions'
 
 const FilterInput = (props) => {
     const { setFilterValue, filterValue} = props;

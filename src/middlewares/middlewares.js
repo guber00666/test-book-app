@@ -1,4 +1,4 @@
-import {booksFetchDataSuccess, booksHasErrored, booksIsLoading} from "../actions";
+import {booksFetchDataSuccess, booksHasErrored, booksIsLoading} from "../actions/actions";
 
 export const logger = store => next => action => {
     console.log('dispatching', action);

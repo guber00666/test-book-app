@@ -6,7 +6,7 @@ import thunk from 'redux-thunk';
 import reducer from '../src/reducers';
 import App from './components/app';
 import { logger,
-         crashReporter } from '../src/middlewares/index';
+         crashReporter } from '../src/middlewares/middlewares';
          
 const store = createStore(reducer,  
   applyMiddleware(logger, crashReporter, thunk));

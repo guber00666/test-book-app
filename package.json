@@ -12,6 +12,7 @@
     "test:coverage": "jest --coverage"
   },
   "jest": {
+    "automock": false,
     "setupFiles": [
       "./test/jestsetup.js"
     ],
@@ -47,7 +48,10 @@
     "css-loader": "^3.2.0",
     "enzyme": "^3.10.0",
     "enzyme-to-json": "^3.4.3",
+    "fetch-mock": "^8.1.0",
     "jest": "^24.9.0",
+    "jest-fetch-mock": "^2.1.2",
+    "nock": "^11.7.0",
     "react-addons-test-utils": "^15.6.2",
     "redux-mock-store": "^1.5.4",
     "style-loader": "^1.0.0",

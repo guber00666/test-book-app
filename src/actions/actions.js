@@ -1,4 +1,4 @@
-import { booksFetchData } from '../middlewares/index'
+import { booksFetchData } from '../middlewares/middlewares'
 
 export const mapDispatchToFilterProps = (dispatch) => {
     return {
@@ -52,7 +52,7 @@ export function booksIsLoading(bool) {
 export function booksFetchDataSuccess(books) {
     return {
         type: 'BOOKS_FETCH_DATA_SUCCESS',
-        books
+        books: books
     };
 }
 

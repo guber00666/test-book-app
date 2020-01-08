@@ -5,7 +5,7 @@ import { rowsOptions } from "../utils/CritreiaSelectUtils";
 import {
     mapStateToCriteriaProps,
     mapDispatchToCriteriaProps
-} from '../../actions/index';
+} from '../../actions/actions';
 
 const CriteriaSelect = (props) => {
 

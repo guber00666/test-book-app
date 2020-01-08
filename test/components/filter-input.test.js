@@ -1,9 +1,7 @@
 import React from "react";
 import Adapter from "enzyme-adapter-react-16/build";
 import FilterInput from '../../src/components/filter-input';
-import renderer from 'react-test-renderer'
 import { createStore, applyMiddleware } from 'redux';
-import { StyledSearchPanel } from "../../src/components/styled-components/components-styles";
 import {Provider} from "react-redux";
 import {initialState} from '../../src/reducers/reducer'
 import 'jest-styled-components';
@@ -11,9 +9,9 @@ import 'jest-styled-components';
 import {
     mapStateToFilterProps,
     mapDispatchToFilterProps
-} from '../../src/actions/index'
+} from '../../src/actions/actions'
 import reducer from "../../src/reducers";
-import {crashReporter, logger} from "../../src/middlewares";
+import {crashReporter, logger} from "../../src/middlewares/middlewares";
 import thunk from "redux-thunk";
 
 
@@ -30,22 +28,8 @@ describe("<FilterInput /> ", () => {
         </Provider>
     );
 
-    it('Frilterinput should render self and other imports', () => {
-        expect(wrapperFilter.find('section').hasClass('search-panel')).toBe(true);
-        expect(wrapperFilter.find('div').at(0).hasClass('input-group mb-3')).toBe(true);
-        expect(wrapperFilter.find('input').hasClass('form-control')).toBe(true);
-
-        expect(wrapperFilter.find('StyledSearchPanel')).toBeDefined();
-
+    it('Filterinput should render self and other imports', () => {
         expect(wrapperFilter).toMatchSnapshot();
-    });
-
-    it('Filterinput should have styles', () => {
-       const searchPanelStyles = renderer.create(<StyledSearchPanel />).toJSON();
-       expect(searchPanelStyles).toHaveStyleRule('border', 'solid 1px');
-       expect(searchPanelStyles).toHaveStyleRule('border-radius', '0.3em');
-
-       expect(searchPanelStyles).toMatchSnapshot();
     });
 
     it('check input correct working', () => {
@@ -64,6 +48,5 @@ describe("<FilterInput /> ", () => {
         mapDispatchToFilterProps(dispatch).setFilterValue();
         expect(dispatch.mock.calls[0][0]).toEqual({  type: 'SET_FILTER' });
     });
-
 
 });

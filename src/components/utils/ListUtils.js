@@ -1,4 +1,5 @@
 import React from "react";
+import Rows from "../rows";
 
 export const filterForElements = (books, filterValue, criteriaValue) => {
     let keyForFiter;
@@ -18,3 +19,20 @@ export const filterForElements = (books, filterValue, criteriaValue) => {
     );
 };
 
+
+export const errorMessage = <h1 style={{textAlign: "center"}}>Sorry can't get data from server.</h1>;
+
+export const tableRows = (
+    <table className="table">
+        <thead>
+        <tr >
+            <th scope="col">Name</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Authors</th>
+        </tr>
+        </thead>
+        <tbody>
+        <Rows />
+        </tbody>
+    </table>
+);

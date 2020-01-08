@@ -10,12 +10,7 @@ import {SpinnerPulse,
 } from "../../src/components/styled-components/spinner-styles";
 import renderer from "react-test-renderer";
 
-
-
-
 configure({ adapter: new Adapter() });
-
-
 
 describe("<Spinner />", () => {
     const wrapperSpinner = shallow(
