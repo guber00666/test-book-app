@@ -7,14 +7,12 @@ import { StyledApp } from "../styled-components/components-styles";
 const  App = () => {
     return (
         <StyledApp>
-            <section className="books-app">
                 <div className="container">
                     <h1>Books</h1>
                     <CriteriaSelect />
                     <FilterInput />
                     <List />
                 </div>
-            </section>
         </StyledApp>
     )
 };

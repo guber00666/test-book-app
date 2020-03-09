@@ -10,7 +10,7 @@ const FilterInput = (props) => {
     const { setFilterValue, filterValue} = props;
 
     return (
-        <section className="search-panel">
+        <div>
             <div className="input-group mb-3" />
             <StyledSearchPanel>
             <input
@@ -20,7 +20,7 @@ const FilterInput = (props) => {
                     event => setFilterValue(event.target.value)}
                 placeholder="type for search" />
             </StyledSearchPanel>
-        </section>
+        </div>
     );
 };
 

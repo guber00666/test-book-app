@@ -13,7 +13,6 @@ const CriteriaSelect = (props) => {
 
     return (
         <StyledCriteria>
-        <section className="criteria-select">
             <div className="form-group">
                 <label>Criteria select</label>
                 <StyledForm>
@@ -26,7 +25,6 @@ const CriteriaSelect = (props) => {
                 </select>
                 </StyledForm>
             </div>
-        </section>
         </StyledCriteria>
     );
 };

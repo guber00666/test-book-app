@@ -29,16 +29,12 @@ class List extends Component {
 
         return (
             <StyledList>
-            <div className="list">
                 {data}
                 {spinner}
                 {error}
                 <StyledPaginator>
-                <div className="pagination-container">
                     <Buttons />
-                </div>
                 </StyledPaginator>
-            </div>
             </StyledList>
         );
     }

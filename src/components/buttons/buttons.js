@@ -1,17 +1,18 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {mapDispatchToListProps, mapStateToListProps,} from '../../actions/actions';
-import {filterForElements} from "../utils/ListUtils";
-import {countRowsOnPage} from "../../constants/constants";
+import { connect } from 'react-redux';
+import { mapDispatchToListProps, mapStateToListProps } from '../../actions/actions';
+import { filterForElements } from "../utils/ListUtils";
+import { countRowsOnPage } from "../../constants/constants";
 
-const Buttons = (props) => {
+export const Buttons = (props) => {
 
     const {
         criteriaValue,
         filterValue,
         paginatorValue,
         setPaginatorValue,
-        books} = props;
+        books
+    } = props;
 
     const filter = filterForElements(books, filterValue, criteriaValue);
     const numberOfPages = (Math.ceil(filter.length / countRowsOnPage));
